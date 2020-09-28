@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\admin\KecamatanController;
 use App\Http\Controllers\AdminController;
 use Illuminate\Support\Facades\Route;
 use Spatie\Permission\Models\Role;
@@ -59,5 +60,12 @@ Route::post('login-post', [AdminController::class, 'login']);
 Route::prefix('administrator')->group(function () {
     Route::group(['middleware' => ['role:admin']], function () {
         Route::get('/home', [AdminController::class, 'index']);
+
+
+        // CRUD Kecamatan
+        Route::get('/kecamatan-view', [KecamatanController::class, 'viewKecamatan']);
+        Route::match(['get', 'post'], '/kecamatan-add', [KecamatanController::class, 'addKecamatan']);
+        Route::match(['get', 'post'], '/kecamatan-edit/{id}', [KecamatanController::class, 'editKecamatan']);
+        Route::Delete('kecamatan-del/{id}', [KecamatanController::class, 'delKecamatan']);
     });
 });

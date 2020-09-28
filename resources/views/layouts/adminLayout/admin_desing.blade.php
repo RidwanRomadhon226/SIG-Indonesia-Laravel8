@@ -10,8 +10,10 @@
     <meta content="Themesdesign" name="author" />
     <link rel="shortcut icon" href="assets/images/favicon.ico">
 
+    @yield('app_css')
+
     <!--Morris Chart CSS -->
-    <link rel="stylesheet" href="../plugins/morris/morris.css">
+    <link rel="stylesheet" href="{{ asset('/plugins/morris/morris.css') }}">
 
     <link href="{{ asset('assets/css/bootstrap.min.css') }}" rel="stylesheet" type="text/css">
     <link href="{{ asset('assets/css/metismenu.min.css') }}" rel="stylesheet" type="text/css">
@@ -38,6 +40,7 @@
             <!-- Start content -->
             <div class="content">
                 <div class="container-fluid">
+
                 @yield('content')
                 </div>
             </div>
@@ -66,6 +69,8 @@
 
     <!-- App js -->
     <script src=" {{ asset('assets/js/app.js') }} "></script>
+
+    @yield('app_js')
 
 </body>
 
