@@ -1,0 +1,37 @@
+
+
+/* Ion Range slider */
+
+.irs--modern{
+  .irs-line, .irs-grid-pol{
+    background: lighten($dark, 6%);
+    border-color: lighten($dark, 6%);
+  }
+  .irs-bar, .irs-to, .irs-from, .irs-single, .irs-handle > i:first-child {
+    background: $primary !important;
+  }
+  .irs-to, .irs-from, .irs-single{
+    &:before{
+      border-top-color: $primary;
+    }
+  }
+  .irs-min, .irs-max{
+    color: $gray-600;
+  }
+  .irs-grid-text{
+    font-size: 10px;
+  }
+  .irs-min, .irs-max{
+    background: lighten($dark, 6%);
+    color: $gray-700;
+  }
+  .irs-handle > i:nth-child(1){
+    width: 8px;
+    height: 8px;
+  }
+}
+
+
+
+
+

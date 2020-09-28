@@ -1,0 +1,26 @@
+/* ==============
+  Pagination
+===================*/
+
+.pagination{
+  .page-item{
+    .page-link {
+      color: $primary;
+      background-color: lighten($dark, 6%);
+      border-color: lighten($dark, 10%);
+    } 
+    &.disabled{
+      .page-link {
+        color: $gray-700;
+        background-color: lighten($dark, 10%);
+      } 
+    }
+    &.active {
+      .page-link {
+        color: $gray-700;
+        background-color: $primary;
+        border-color: $primary;
+      }
+    }
+  }
+}

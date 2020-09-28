@@ -1,0 +1,28 @@
+/* ==============
+  Card
+===================*/
+
+.card {
+  border: none;
+  margin-bottom: 30px;
+  background: $dark;
+}
+
+.list-group-item {
+  background-color: transparent;
+  border-color: rgba(255, 255, 255, 0.125);
+}
+
+@media (min-width: 576px) {
+  .card-columns {
+      -webkit-column-gap: 30px;
+      -moz-column-gap: 30px;
+      column-gap: 30px;
+  }
+}
+
+.card-columns {
+  .card {
+    margin-bottom: 30px;
+  }
+}
