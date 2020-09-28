@@ -53,3 +53,11 @@ Route::get('/admin', [AdminController::class, 'index']);
 //     Route::get('/admin', [AdminController::class, 'index']);
 //     //
 // });
+
+// Route::match(['get', 'post'], '/administrator', 'admin\adminController@login');
+Route::post('login-post', [AdminController::class, 'login']);
+Route::prefix('administrator')->group(function () {
+    Route::group(['middleware' => ['role:admin']], function () {
+        Route::get('/home', [AdminController::class, 'index']);
+    });
+});
