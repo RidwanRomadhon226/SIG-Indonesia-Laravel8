@@ -38,7 +38,7 @@
                 <div class="col">
                     <h4 class="mt-0 header-title mb-3">Data Tabel Kecamatan</h4>
                     <a type="button" href="{{ url('administrator/kecamatan-add') }}" class="btn mb-4 btn-primary waves-effect waves-light">Tambah Data</a>
-                    <a type="button" href="{{ url('administrator/kecamatan-add') }}" class="btn mb-4 btn-primary waves-effect waves-light">Lihat Maps</a>
+                    <a type="button" href="{{ url('administrator/kecamatan-view-maps') }}" class="btn mb-4 btn-primary waves-effect waves-light">Lihat Maps</a>
                 </div>
 
                 <table id="datatable-buttons" class="table table-striped table-bordered dt-responsive nowrap" style="border-collapse: collapse; border-spacing: 0; width: 100%;">

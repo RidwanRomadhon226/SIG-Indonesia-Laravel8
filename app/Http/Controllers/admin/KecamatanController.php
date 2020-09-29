@@ -5,6 +5,7 @@ namespace App\Http\Controllers\admin;
 use App\Http\Controllers\Controller;
 use App\Models\kecamatan;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class KecamatanController extends Controller
 {
@@ -115,5 +116,12 @@ class KecamatanController extends Controller
         $kecamatan = Kecamatan::findOrFail($id);
         $kecamatan->delete();
         return redirect('administrator/kecamatan-view')->with('flash_message_success', 'Berhasi Hapus Data GeoJson');
+    }
+
+    public function viewMapsKecamatan()
+    {
+        $kecamatans = kecamatan::query()->get();
+        // $kecamatans = DB::ObjectBuilder()->get('kecamatans');
+        return view('admin.kecamatan.view_maps')->with(compact('kecamatans'));
     }
 }

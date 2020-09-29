@@ -67,5 +67,8 @@ Route::prefix('administrator')->group(function () {
         Route::match(['get', 'post'], '/kecamatan-add', [KecamatanController::class, 'addKecamatan']);
         Route::match(['get', 'post'], '/kecamatan-edit/{id}', [KecamatanController::class, 'editKecamatan']);
         Route::Delete('kecamatan-del/{id}', [KecamatanController::class, 'delKecamatan']);
+
+        // View Maps
+        Route::get('/kecamatan-view-maps', [KecamatanController::class, 'viewMapsKecamatan']);
     });
 });
