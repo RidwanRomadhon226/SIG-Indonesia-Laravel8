@@ -17,6 +17,9 @@
                 <li>
                     <a href="{{ url('administrator/kecamatan-view') }}" class="waves-effect"><i class="icon-calendar"></i><span> Add Kecamatan </span></a>
                 </li>
+                <li>
+                    <a href="{{ url('administrator/hospot-view') }}" class="waves-effect"><i class="icon-map"></i><span>  Hospot </span></a>
+                </li>
 
 
 

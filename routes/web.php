@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\admin\HotSpotController;
 use App\Http\Controllers\admin\KecamatanController;
 use App\Http\Controllers\AdminController;
 use Illuminate\Support\Facades\Route;
@@ -70,5 +71,9 @@ Route::prefix('administrator')->group(function () {
 
         // View Maps
         Route::get('/kecamatan-view-maps', [KecamatanController::class, 'viewMapsKecamatan']);
+
+        // CRUD HotSpot
+        Route::get('/hospot-view', [HotSpotController::class, 'viewHotspot']);
+        Route::match(['get', 'post'], '/hospot-add', [HotSpotController::class, 'addHotspot']);
     });
 });

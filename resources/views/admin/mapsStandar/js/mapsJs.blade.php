@@ -70,14 +70,14 @@ crossorigin=""></script>
          name: "OpenStreetMap",
          layer: Layer
      },
-     {
-         name: "OpenCycleMap",
-         layer: L.tileLayer('http://{s}.tile.opencyclemap.org/cycle/{z}/{x}/{y}.png')
-     },
-     {
-         name: "Outdoors",
-         layer: L.tileLayer('http://{s}.tile.thunderforest.com/outdoors/{z}/{x}/{y}.png')
-     }
+    //  {
+    //      name: "OpenCycleMap",
+    //      layer: L.tileLayer('http://{s}.tile.opencyclemap.org/cycle/{z}/{x}/{y}.png')
+    //  },
+    //  {
+    //      name: "Outdoors",
+    //      layer: L.tileLayer('http://{s}.tile.thunderforest.com/outdoors/{z}/{x}/{y}.png')
+    //  }
  ];
 
 
