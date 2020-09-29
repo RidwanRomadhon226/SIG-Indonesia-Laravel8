@@ -53,17 +53,17 @@
             <h4 class="mt-0 header-title mb-4">Lengkapi Data HotSpot</h4>
 
 
-            <form method="post" action="{{ url('administrator/hospot-add') }}" enctype="multipart/form-data" > @csrf
+            <form method="post" action="{{ url('administrator/hospot-edit/'.$hotspot->id) }}" enctype="multipart/form-data" > @csrf
                 <div class="form-group">
                     <label>lokasi</label>
-                    <input type="text" value="{{ old('lokasi') }}" name="lokasi" class="form-control" required placeholder="Lokasi HotSpot"/>
+                    <input type="text" value="{{ $hotspot->lokasi }}" name="lokasi" class="form-control" required placeholder="Lokasi HotSpot"/>
                 </div>
                 <div class="form-group ">
                     <label>Pilih Kecamatan</label>
                         <select class="form-control" name="kecamatan" required>
                             <option value="">Select</option>
                             @foreach ($kecamatans as $kecamatan)
-                            <option value="{{ $kecamatan->id }}" >{{ $kecamatan->nama_kecamatan }}</option>
+                            <option @if ($kecamatan->id == $hotspot->kecamatan_id) selected @endif value="{{ $kecamatan->id }}" >{{ $kecamatan->nama_kecamatan }}</option>
                             @endforeach
                         </select>
 
@@ -72,8 +72,8 @@
                 <div class="form-group">
                     <label class="col-form-label">Pilih Kecamatan</label>
                     <div class="col-sm-12 row">
-                        <input type="text" name="lat" value="{{ old('lat') }}" class=" mr-2 col-sm-5 form-control" required placeholder="lat"/>
-                        <input type="text" name="lng" value="{{ old('lng') }}" class=" col-sm-5 form-control" required placeholder="lng"/>
+                        <input type="text" name="lat" value="{{ $hotspot->lat }}" class=" mr-2 col-sm-5 form-control" required placeholder="lat"/>
+                        <input type="text" name="lng" value="{{ $hotspot->lng }}" class=" col-sm-5 form-control" required placeholder="lng"/>
                     </div>
                     <span> Akan terisi Otomatis Ketika Memilih Titik </span>
                 </div>
@@ -81,7 +81,7 @@
                     <label>Tanggal</label>
                     <div>
                         <div class="input-group">
-                            <input type="text" name="tanggal" value="{{ old('tanggal') }}" class="form-control" required placeholder="yyyy-mm-dd" id="datepicker-autoclose">
+                            <input type="text" name="tanggal" value="{{ $hotspot->tanggal }}" class="form-control" required placeholder="yyyy-mm-dd" id="datepicker-autoclose">
                             <div class="input-group-append bg-custom b-0"><span class="input-group-text"><i class="mdi mdi-calendar"></i></span></div>
                         </div><!-- input-group -->
                     </div>
@@ -90,13 +90,17 @@
                 <div class="form-group">
                     <label>Keterangan</label>
                     <div>
-                        <textarea required class="form-control" name="keterangan" rows="5">{{ old('keterangan') }}</textarea>
+                        <textarea required class="form-control" name="keterangan" rows="5">{{ $hotspot->keterangan }}</textarea>
                     </div>
                 </div>
 
                 <div class="form-group">
                     <label>Icons Marker</label>
-                    <input type="file" name="marker" value="{{ old('marker') }}" class="form-control" required placeholder="marker"/>
+                    <input type="hidden"  name="current_marker" value="{{ $hotspot->marker }}" class="col-sm-5 form-control" placeholder="marker"/> ||
+                    <input type="file"  name="marker" class="col-sm-5 form-control"  placeholder="marker"/> ||
+                    @if (!empty($hotspot->marker))
+                    <img width="30px" src="{{ asset('assets/unggahan/marker/'.$hotspot->marker) }}" alt="">
+                    @endif
                 </div>
 
                 <div class="form-group">

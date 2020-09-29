@@ -26,6 +26,8 @@ class CreateHotspotsTable extends Migration
             $table->float('lng', 9, 6);
             $table->date('tanggal');
             $table->text('polygon')->nullable();
+            $table->text('marker')->nullable();
+            $table->softDeletes();
             $table->timestamps();
         });
     }

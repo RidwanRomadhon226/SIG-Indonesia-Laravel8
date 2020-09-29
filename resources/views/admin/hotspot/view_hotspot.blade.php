@@ -44,11 +44,14 @@
                 <table id="datatable-buttons" class="table table-striped table-bordered dt-responsive nowrap" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
                     <thead>
                     <tr>
-                        <th>kode kecamatan</th>
+                        <th>lokasi</th>
                         <th>Nama Kecamatan</th>
-                        <th>geojson kecamatan</th>
-                        <th>warna kecamatan</th>
-                        <th>Create By</th>
+                        <th>lat</th>
+                        <th>lng</th>
+                        <th>tanggal</th>
+                        <th>keterangan</th>
+                        <th>marker</th>
+                        <th>Created By</th>
                         <th>Acction</th>
                     </tr>
                     </thead>
@@ -57,22 +60,28 @@
                     <tbody>
                     @if(count($hospots) > 0)
                     @foreach($hospots as $hospot)
-                    {{-- <tr>
-                        <td>{{ $hospot->kd_kecamatan }}</td>
-                        <td>{{ $hospot->nama_kecamatan }}</td>
-                        <td>{{ $hospot->geojson_kecamatan }}</td>
-                        <td bgcolor="{{ $kecamatan->warna_kecamatan }}" >{{ $kecamatan->warna_kecamatan }}</td>
-                        <td>{{ $kecamatan->user->name  }}</td>
+                    <tr>
+                        <td>{{ $hospot->lokasi }}</td>
+                        <td>{{ $hospot->kecamatan->nama_kecamatan }}</td>
+                        <td>{{ $hospot->lat }}</td>
+                        <td>{{ $hospot->lng }}</td>
+                        <td>{{ $hospot->tanggal }}</td>
+                        <td>{{ $hospot->keterangan }}</td>
                         <td>
-                            <a class="btn btn-success" href="{{ url('administrator/kecamatan-edit/'.$kecamatan->id) }}" role="button">Ubah</a>
+                            <img width="30px" src="{{ asset('assets/unggahan/marker/'.$hospot->marker) }}" alt="">
+                        </td>
+                        <td>{{ $hospot->user->name }}</td>
+                        {{-- <td>{{ $hospot->user->name  }}</td> --}}
+                        <td>
+                            <a class="btn btn-success" href="{{ url('administrator/hospot-edit/'.$hospot->id) }}" role="button">Ubah</a>
                             <form method="POST" class="d-inline" onsubmit="return confirm('Yakin dihapus?')"
-                                action="{{ url('administrator/kecamatan-del/'.$kecamatan->id) }}">
+                                action="{{ url('administrator/hospot-del/'.$hospot->id) }}">
                                 @csrf
                                 <input type="hidden" value="DELETE" name="_method">
                                 <input type="submit" value="Hapus" class="btn btn-danger">
                             </form>
                         </td>
-                    </tr> --}}
+                    </tr>
                     @endforeach
                     @else
                     <span class="badge badge-danger mb-4">Tidak Ada Data</span>

@@ -43,4 +43,9 @@ class User extends Authenticatable
     {
         return $this->hasMany('App\Models\kecamatan');
     }
+
+    public function hotpots()
+    {
+        return $this->hasMany('App\Models\Hotspot');
+    }
 }

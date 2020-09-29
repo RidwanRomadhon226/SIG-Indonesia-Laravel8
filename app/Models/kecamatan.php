@@ -16,4 +16,9 @@ class kecamatan extends Model
     {
         return $this->belongsTo('App\Models\User');
     }
+
+    public function hostpots()
+    {
+        return $this->hasMany('App\Models\Hotspot');
+    }
 }

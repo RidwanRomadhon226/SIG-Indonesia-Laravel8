@@ -96,14 +96,14 @@ class KecamatanController extends Controller
                 $file_tmp->move($destinationPath, $profilefile);
                 $kecamatan->geojson_kecamatan = $profilefile;
             } else {
-                $kecamatan = $data['current_geojson_kecamatan'];
+                $profilefile = $data['current_geojson_kecamatan'];
             }
 
             kecamatan::where(['id' => $id])->update([
                 'kd_kecamatan' => $data['kd_kecamatan'],
                 'nama_kecamatan' => $data['nama_kecamatan'],
                 'warna_kecamatan' => $data['warna_kecamatan'],
-                'geojson_kecamatan' => $kecamatan
+                'geojson_kecamatan' => $profilefile
             ]);
             return redirect('administrator/kecamatan-view')->with('flash_message_success', 'Berhasi Edit Data GeoJson');
         }

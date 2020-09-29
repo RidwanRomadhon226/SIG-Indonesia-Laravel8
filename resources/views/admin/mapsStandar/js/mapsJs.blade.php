@@ -12,9 +12,12 @@ crossorigin=""></script>
 <script src="{{ asset('assets/leflet/js/leaflet.ajax.js') }}"></script>
 {{-- <script src=" {{ asset('assets/js/leaflet-compass-master/src/leaflet-compass.js') }}"></script> --}}
 {{-- <script src=" {{ asset('assets/js/Leaflet.GoogleMutant.js') }}"></script> --}}
+<script src="{{ url('/api/hospot-view-api') }}"></script>
 
 
 <script type="text/javascript">
+
+    // console.log(kecamatans);
 
     var map = L.map('map').setView([-4.446407, 114.163619], 5);
 

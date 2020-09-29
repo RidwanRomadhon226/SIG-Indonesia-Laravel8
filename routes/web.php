@@ -75,5 +75,7 @@ Route::prefix('administrator')->group(function () {
         // CRUD HotSpot
         Route::get('/hospot-view', [HotSpotController::class, 'viewHotspot']);
         Route::match(['get', 'post'], '/hospot-add', [HotSpotController::class, 'addHotspot']);
+        Route::Delete('hospot-del/{id}', [HotSpotController::class, 'delHotspot']);
+        Route::match(['get', 'post'], '/hospot-edit/{id}', [HotSpotController::class, 'editHotspot']);
     });
 });
