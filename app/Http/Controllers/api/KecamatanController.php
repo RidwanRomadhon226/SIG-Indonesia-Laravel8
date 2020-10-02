@@ -12,7 +12,7 @@ class KecamatanController extends Controller
     {
         $response = [];
         $kecamatans = kecamatan::get();
-        $response[] = $kecamatans;
-        return "var kecamatans=" . json_encode($response);
+        $response = $kecamatans;
+        return "var dataKecamatan =" . json_encode($response, JSON_PRETTY_PRINT);
     }
 }

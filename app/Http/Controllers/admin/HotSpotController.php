@@ -127,4 +127,9 @@ class HotSpotController extends Controller
         $hotspot->delete();
         return redirect('administrator/hospot-view')->with('flash_message_success', 'Berhasi Hapus Data HosPot');
     }
+
+    public function viewMapsHotspot()
+    {
+        return view('admin.hotspot.view_maps_hotspot');
+    }
 }

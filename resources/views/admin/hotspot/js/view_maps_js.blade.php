@@ -13,7 +13,7 @@ crossorigin=""></script>
 {{-- <script src=" {{ asset('assets/js/leaflet-compass-master/src/leaflet-compass.js') }}"></script> --}}
 {{-- <script src=" {{ asset('assets/js/Leaflet.GoogleMutant.js') }}"></script> --}}
 <script src="{{ url('/api/hospot-view-api') }}"></script>
-
+<script src="{{ url('/api/hospot-point-api') }}"></script>
 
 <script type="text/javascript">
 
@@ -108,9 +108,39 @@ crossorigin=""></script>
       layersKecamatan.push(layer);
     }
 
+
+
+    //HotSpot
+    var layersHotspotPoint = L.geoJSON(geojsonPoint, {
+      pointToLayer: function (feature, latlng) {
+        console.log(feature)
+          return L.marker(latlng, {
+            icon : new L.icon({iconUrl: feature.properties.icon,
+            iconSize: [38,45],
+            })
+          });
+      },
+      onEachFeature: function(feature,layer){
+         if (feature.properties && feature.properties.name) {
+            layer.bindPopup(feature.properties.popUp);
+        }
+      }
+  }).addTo(map);
+
+
+
+
     var overLayers = [{
     group: "Layer Kecamatan",
     layers: layersKecamatan
+  },
+  {
+    group: "Titik Hostpot",
+    layers: [{
+      name: "Semua Titik",
+      icon: iconByName("#009"),
+      layer: layersHotspotPoint
+      }]
   }
   ];
 

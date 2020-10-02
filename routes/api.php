@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\api\HotSpotController;
 use App\Http\Controllers\api\KecamatanController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -20,3 +21,4 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::get('/hospot-view-api', [KecamatanController::class, 'viewHotspot']);
+Route::get('/hospot-point-api', [HotSpotController::class, 'viewHotspotPoint']);
