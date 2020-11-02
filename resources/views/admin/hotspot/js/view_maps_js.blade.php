@@ -108,8 +108,6 @@ crossorigin=""></script>
       layersKecamatan.push(layer);
     }
 
-
-
     //HotSpot
     var layersHotspotPoint = L.geoJSON(geojsonPoint, {
       pointToLayer: function (feature, latlng) {
@@ -126,8 +124,6 @@ crossorigin=""></script>
         }
       }
   }).addTo(map);
-
-
 
 
     var overLayers = [{
